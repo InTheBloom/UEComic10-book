@@ -1,0 +1,22 @@
+# Local files and backups
+.DS_Store
+*~
+*.bak
+*.orig
+*:Zone.Identifier
+/.agents/
+/.codex/
+/.aws/
+
+# Dependencies and temporary files
+/rubygems/
+/tmp/
+
+# Re:VIEW build outputs (keep source PDFs under images/)
+/*-book.pdf
+/*-book.epub
+/*-book-pdf/
+/*-book-epub/
+/*-book-md/
+/webroot/
+/images/_review_math/

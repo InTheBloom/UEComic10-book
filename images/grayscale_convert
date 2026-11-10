@@ -1,0 +1,26 @@
+#!/bin/bash
+# grayscale_convert.sh
+# 指定したディレクトリ内の jpg をすべてグレースケール化して上書きする
+
+# 使用法: ./grayscale_convert.sh /path/to/directory
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 /path/to/directory"
+    exit 1
+fi
+
+DIR="$1"
+
+if [ ! -d "$DIR" ]; then
+    echo "Error: $DIR is not a directory"
+    exit 1
+fi
+
+shopt -s nullglob
+for img in "$DIR"/*.jpg "$DIR"/*.jpeg; do
+    echo "Converting $img to grayscale..."
+    convert "$img" -colorspace Gray "$img"
+done
+
+echo "Done."
+
