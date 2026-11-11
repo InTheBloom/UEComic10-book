@@ -10,6 +10,7 @@ PREDEF:
 
 ## 本文
 CHAPS:
+  - bs.re
   - bsearch.re
   - geosum.re
   - select.re
