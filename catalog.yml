@@ -11,10 +11,8 @@ PREDEF:
 ## 本文
 CHAPS:
   - bs.re
-  - bsearch.re
-  - geosum.re
-  - select.re
-  - bst.re
+  - zeta.re
+  - string.re
 
 ## 付録
 APPENDIX:

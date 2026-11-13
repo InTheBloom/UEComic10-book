@@ -9,3 +9,21 @@
 %% 段落の隙間を空ける
 \setlength{\parskip}{0.8em}
 \setlength{\parindent}{0pt}
+
+%% 定義：背景なし、細い左罫線と本文側の余白だけでまとめる
+\newenvironment{bookdefinition}[1]{%
+  \par\addvspace{\medskipamount}%
+  \def\FrameCommand{\textcolor{black!55}{\vrule width 0.6pt}\hspace{10pt}}%
+  \MakeFramed{\advance\hsize-\width\FrameRestore}%
+  \noindent{\gtfamily\sffamily\bfseries #1}\par\nobreak%
+}{%
+  \par\endMakeFramed%
+  \addvspace{\medskipamount}%
+}
+
+%% 問題も定義と同じ左罫線のスタイルに揃える
+\newenvironment{bookproblem}[1]{%
+  \begin{bookdefinition}{#1}%
+}{%
+  \end{bookdefinition}%
+}

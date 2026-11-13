@@ -24,6 +24,8 @@ module ReVIEW
   Compiler.defblock :textleft, 0        ## 左寄せ
   Compiler.defblock :textright, 0       ## 右寄せ
   Compiler.defblock :textcenter, 0      ## 中央揃え
+  Compiler.defblock :definition, 1      ## 左罫線付きの定義
+  Compiler.defblock :problem, 1         ## 左罫線付きの問題
   Compiler.defsingle :clearpage, 0      ## 改ページ (\clearpage)
   Compiler.defsingle :sampleoutputbegin, 0..1 ## （出力結果開始部、Starterドキュメントで使用）
   Compiler.defsingle :sampleoutputend, 0      ## （出力結果終了部、Starterドキュメントで使用）
@@ -31,6 +33,18 @@ module ReVIEW
 
   ## LaTeX用の定義
   class LATEXBuilder
+
+    def on_problem_block(caption)
+      puts "\\begin{bookproblem}{#{compile_inline(caption)}}"
+      yield
+      puts '\\end{bookproblem}'
+    end
+
+    def on_definition_block(caption)
+      puts "\\begin{bookdefinition}{#{compile_inline(caption)}}"
+      yield
+      puts '\\end{bookdefinition}'
+    end
 
     ## 改ページ（インライン命令）
     def inline_clearpage(str)
@@ -108,6 +122,20 @@ module ReVIEW
   ## HTML（ePub）用の定義
   class HTMLBuilder
 
+    def on_problem_block(caption)
+      puts '<div class="book-problem">'
+      puts "<p class=\"book-problem-title\">#{compile_inline(caption)}</p>"
+      yield
+      puts '</div>'
+    end
+
+    def on_definition_block(caption)
+      puts '<div class="book-definition">'
+      puts "<p class=\"book-definition-title\">#{compile_inline(caption)}</p>"
+      yield
+      puts '</div>'
+    end
+
     ## 改ページはHTMLにはない
     def inline_clearpage(str)   # インライン命令
       puts '<p></p>'
@@ -184,6 +212,16 @@ module ReVIEW
 
 
   class TEXTBuilder
+
+    def on_problem_block(caption)
+      puts compile_inline(caption)
+      yield
+    end
+
+    def on_definition_block(caption)
+      puts compile_inline(caption)
+      yield
+    end
 
     ## TeXのロゴマーク
     def inline_TeX(str)

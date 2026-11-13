@@ -690,3 +690,16 @@ pre.compile-error-backtrace {
 	border: solid 1px #ccc;
 	overflow: auto;
 }
+
+/* Definitions: a thin left rule, with no background or surrounding box. */
+.book-definition,
+.book-problem {
+  border-left: 0.6pt solid #737373;
+  padding: 0 0 0 10pt;
+  margin: 1em 0;
+}
+.book-definition-title,
+.book-problem-title {
+  font-weight: bold;
+  margin-top: 0;
+}
