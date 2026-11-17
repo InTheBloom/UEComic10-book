@@ -12,7 +12,7 @@ PREDEF:
 CHAPS:
   - bs.re
   - zeta.re
-  - string.re
+  - sa.re
   - hld.re
 
 ## 付録

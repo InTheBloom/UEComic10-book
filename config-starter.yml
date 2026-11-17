@@ -7,7 +7,7 @@ starter:
   ## * pbook: 印刷用のモノクロPDFを出力。printing bookの略。
   ## * ebook: 電子用のカラーPDFを出力。electric bookの略。
   ## * tablet: タブレット用のカラーPDFを出力。
-  target: ebook
+  target: pbook
 
   ## ドラフトモード。trueなら画像を読み込むかわりに枠を表示する。
   ## 図やスクリーンショットが多くてコンパイルに時間がかかるときに便利。
@@ -32,7 +32,7 @@ starter:
   ## 本文幅
   ## ・A5 9ptなら「38zw」か「39zw」、A5 10ptなら「35zw」を推奨
   ## ・B5 10ptなら「44zw」か「45zw」、B5 11ptなら「41zw」を推奨
-  textwidth: 48zw          # 全角の文字数で指定
+  textwidth: 45zw          # 全角の文字数で指定
 
   ## 本文のフォント（注：実験的）
   ## （Notoフォントが前提なので、Docker環境が必要。MacTeXでは使わないこと）

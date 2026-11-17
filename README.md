@@ -26,6 +26,20 @@ Re:VIEW Starterを使用します。
 
 ## コンパイル方法
 
+### 印刷用（表紙・裏表紙を含めない本文PDF）
+
+```sh
+./build-print
+```
+
+印刷用モード `STARTER_TARGET=pbook` で `UEComic10-book.pdf` を生成します。
+表紙・裏表紙を除外し、モノクロで出力します。大扉・目次・奥付は含まれます。
+既存の `UEComic10-book.pdf` は上書きされます。
+表紙素材は `config-starter.yml` の `frontcover_pdffile`・`backcover_pdffile`
+で指定した `images/` 内のPDFです。本文PDFとは別ファイルのまま保持します。
+
+### 通常のビルド
+
 Docker を使う場合：
 
 ```terminal
